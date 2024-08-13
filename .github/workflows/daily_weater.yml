@@ -4,6 +4,9 @@ name: Daily Weather Notification
 on:
   schedule:
     - cron: "0 23 * * *" # 毎日朝8時に実行 (日本時間)
+  push:
+    branches:
+      - main
 
 jobs:
   run-weather-script:

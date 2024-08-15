@@ -4,6 +4,7 @@ name: Daily Weather Notification
 on:
   schedule:
     - cron: "0 23 * * *" # 毎日朝8時に実行 (日本時間)
+  workflow_dispatch: # 手動で実行
 
 jobs:
   run-weather-script:

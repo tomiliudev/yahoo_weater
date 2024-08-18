@@ -21,8 +21,11 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: List files in the root directory
-        run: ls -al
+      - name: Set timezone to JST
+        run: echo "TZ='Asia/Tokyo'" >> /etc/environment
+
+      - name: Print current date and time in JST
+        run: date
 
       - name: Install dependencies
         run: |

@@ -3,6 +3,12 @@ import requests
 from bs4 import BeautifulSoup
 # from dotenv import load_dotenv
 import os
+import pytz
+
+# 日本時間のタイムゾーンを設定
+jst = pytz.timezone('Asia/Tokyo')
+# 現在の日時を日本時間で取得
+current_time_jst = datetime.datetime.now(jst)
 
 def fetch_weather_data(url):
     response = requests.get(url)
@@ -128,7 +134,7 @@ def main():
     access_token_list = os.getenv('LINE_NOTIFY_ACCESS_TOKEN_LIST').split(",")
 
     # 今日の天気を送信
-    today = datetime.date.today()
+    today = current_time_jst.date()
     send_weather_data_to_line(html_content, 'yjw_pinpoint_today', today, access_token_list)
 
     # 明日の天気を送信

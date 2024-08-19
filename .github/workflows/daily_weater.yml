@@ -21,12 +21,6 @@ jobs:
         with:
           python-version: "3.x"
 
-      - name: Set timezone to JST
-        run: echo "TZ='Asia/Tokyo'" >> /etc/environment
-
-      - name: Print current date and time in JST
-        run: date
-
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
